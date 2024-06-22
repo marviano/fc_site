@@ -133,7 +133,7 @@ export default () => {
         heading={<>Customers <HighlightedText>Love Us.</HighlightedText></>}
       />
       <DownloadApp
-        text={<>People around you are ordering delicious meals using the <HighlightedTextInverse>Treact App.</HighlightedTextInverse></>}
+        text={<>People around you are ordering delicious meals using the <HighlightedTextInverse>Jack's Chicken</HighlightedTextInverse></>}
       />
       <Footer />
     </AnimationRevealPage>
