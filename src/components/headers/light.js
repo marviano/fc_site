@@ -10,9 +10,12 @@ import logo from "../../images/logo.svg";
 import { ReactComponent as MenuIcon } from "feather-icons/dist/icons/menu.svg";
 import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
 
+//Custom code
 const Header = tw.header`
   flex justify-between items-center
   max-w-screen-xl mx-auto
+  -mt-12
+  -mb-12
 `;
 
 export const NavLinks = tw.div`inline-block`;
@@ -33,14 +36,6 @@ export const PrimaryLink = tw(NavLink)`
   border-b-0
 `;
 
-export const LogoLink = styled(NavLink)`
-  ${tw`flex items-center font-black border-b-0 text-2xl! ml-0!`};
-
-  img {
-    ${tw`w-10 mr-3`}
-  }
-`;
-
 export const MobileNavLinksContainer = tw.nav`flex flex-1 items-center justify-between`;
 export const NavToggle = tw.button`
   lg:hidden z-20 focus:outline-none hocus:text-primary-500 transition duration-300
@@ -54,6 +49,26 @@ export const MobileNavLinks = motion(styled.div`
 
 export const DesktopNavLinks = tw.nav`
   hidden lg:flex flex-1 justify-between items-center
+`;
+
+//Custom Code
+export const LogoLink = styled(NavLink)`
+  ${tw`flex items-center font-black border-b-0 text-2xl! ml-0!`};
+
+  img {
+    ${tw`w-24 sm:w-32 md:w-40 lg:w-48 mr-3`}// Responsive width using Tailwind classes
+    
+    // Additional responsive styling using media queries
+    @media (min-width: 1024px) {
+      width: 192px; // Larger screens
+    }
+    @media (max-width: 1023px) and (min-width: 768px) {
+      width: 160px; // Medium screens
+    }
+    @media (max-width: 767px) {
+      width: 120px; // Smaller screens
+    }
+  }
 `;
 
 export default ({ roundedHeaderButton = false, logoLink, links, className, collapseBreakpointClass = "lg" }) => {
@@ -72,14 +87,16 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
    */
   const defaultLinks = [
     <NavLinks key={1}>
-      <NavLink href="/#">About</NavLink>
-      <NavLink href="/#">Blog</NavLink>
-      <NavLink href="/#">Pricing</NavLink>
-      <NavLink href="/#">Contact Us</NavLink>
-      <NavLink href="/#" tw="lg:ml-12!">
+      {/* <NavLink href="/#">About</NavLink> */}
+      <PrimaryLink css={roundedHeaderButton && tw`rounded-full`} href="/#">Beranda</PrimaryLink>
+      {/* <PrimaryLink css={roundedHeaderButton && tw`rounded-full`} href="/#">Be Our Partner</PrimaryLink> */}
+      <NavLink href="/#">Kemitraan</NavLink>
+      <NavLink href="/#">Tentang Kami</NavLink>
+      <NavLink href="/#">Program 2025</NavLink>
+      {/* <NavLink href="/#" tw="lg:ml-12!">
         Login
       </NavLink>
-      <PrimaryLink css={roundedHeaderButton && tw`rounded-full`}href="/#">Sign Up</PrimaryLink>
+      <PrimaryLink css={roundedHeaderButton && tw`rounded-full`} href="/#">Sign Up</PrimaryLink> */}
     </NavLinks>
   ];
 
@@ -89,7 +106,7 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
   const defaultLogoLink = (
     <LogoLink href="/">
       <img src={logo} alt="logo" />
-      Treact
+      {/* Treact */}
     </LogoLink>
   );
 
