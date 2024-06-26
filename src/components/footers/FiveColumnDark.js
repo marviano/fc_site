@@ -48,12 +48,12 @@ export default () => {
           <CompanyColumn>
             <LogoContainer>
               <LogoImg src={LogoImage} />
-              <LogoText>Treact Inc.</LogoText>
+              <LogoText>Jack's Inc</LogoText>
             </LogoContainer>
             <CompanyAddress>
-              123 Road, New Startup Building
-              Carter Road, San Francisco
-              California 40234
+              Jl. Kalimantan No. 133
+              Madiun, Jawa Timur
+              Indonesia
             </CompanyAddress>
             <SocialLinksContainer>
               <SocialLink href="https://facebook.com">
@@ -87,12 +87,12 @@ export default () => {
           <Column>
             <ColumnHeading>Product</ColumnHeading>
             <LinkList>
-              <LinkListItem>
+              {/* <LinkListItem>
                 <Link href="#">Log In</Link>
               </LinkListItem>
               <LinkListItem>
                 <Link href="#">Personal</Link>
-              </LinkListItem>
+              </LinkListItem> */}
               <LinkListItem>
                 <Link href="#">Business</Link>
               </LinkListItem>
@@ -122,10 +122,10 @@ export default () => {
             <ColumnHeading>Contact</ColumnHeading>
             <LinkList>
               <LinkListItem>
-                +1 (234) (567)-8901
+                +62 822-34662-2863
               </LinkListItem>
               <LinkListItem>
-                <Link href="mailto:support@servana.com">support@servana.com</Link>
+                <Link href="mailto:support@servana.com">support@jackschicken.com</Link>
               </LinkListItem>
               <LinkListItem>
                 <Link href="#">Sales</Link>
@@ -138,8 +138,8 @@ export default () => {
         </FiveColumns>
         <Divider/>
         <CopyrightAndCompanyInfoRow>
-          <CopyrightNotice>&copy; Copyright 2020, Treact Inc.</CopyrightNotice>
-          <CompanyInfo>An Internet Company.</CompanyInfo>
+          <CopyrightNotice>&copy; Austin Sebastian Marviano</CopyrightNotice>
+          <CompanyInfo>Github.com/marviano</CompanyInfo>
         </CopyrightAndCompanyInfoRow>
       </Content>
     </Container>

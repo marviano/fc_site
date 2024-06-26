@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import tw from "twin.macro";
 import { css } from "styled-components/macro"; //eslint-disable-line
+
+// custom code
+import biayaKemitraanImage from "./images/jackschicken/biaya-kemitraan.png";
+import syaratKemitraanImage from "./images/jackschicken/syarat-kemitraan.png";
+import sistemKerjasamaImage from "./images/jackschicken/sistem-kerjasama.png";
+import prosedurKemitraanImage from "./images/jackschicken/prosedurkemitraan.png";
+import proyeksiBEPImage from "./images/jackschicken/proyeksibep2.png";
+
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import Hero from "components/hero/TwoColumnWithVideo.js";
 import Features from "components/features/ThreeColSimple.js";
@@ -15,6 +23,51 @@ import chefIconImageSrc from "images/chef-icon.svg";
 import celebrationIconImageSrc from "images/celebration-icon.svg";
 import shopIconImageSrc from "images/shop-icon.svg";
 
+
+//custom code
+const FranchiseDetails = () => {
+  const [activeButton, setActiveButton] = useState(0);
+  const buttons = ["Biaya Kemitraan", "Syarat Kemitraan", "Sistem Kerjasama", "Prosedur Kemitraan", "Proyeksi BEP"];
+
+  const buttonColors = ["#6DB23F", "#09A95A", "#009D76", "#008F8D", "#007F9D", "#006EA2"];
+
+  const content = [
+    biayaKemitraanImage,
+    syaratKemitraanImage,
+    sistemKerjasamaImage,
+    prosedurKemitraanImage,
+    proyeksiBEPImage // Use the actual image for "Proyeksi BEP"
+  ];
+
+  return (
+    <div tw="mt-12 mb-12 text-center">
+      <div tw="flex justify-center space-x-4">
+        {buttons.map((button, index) => (
+          <button
+            key={index}
+            tw="px-6 py-3 rounded-lg focus:outline-none"
+            css={[
+              activeButton === index && tw`bg-primary-500 text-white`,
+              css`
+                background-color: ${activeButton === index ? buttonColors[index] : "transparent"};
+                color: ${activeButton === index ? "white" : buttonColors[index]};
+                border: 2px solid ${buttonColors[index]};
+              `
+            ]}
+            onClick={() => setActiveButton(index)}
+          >
+            {button}
+          </button>
+        ))}
+      </div>
+      <div tw="mt-8 flex justify-center"> {/* Add 'flex justify-center' */}
+        <img src={content[activeButton]} alt={buttons[activeButton]} />
+      </div>
+    </div>
+  );
+};
+//end of custom code
+
 export default () => {
   const Subheading = tw.span`tracking-wider text-sm font-medium`;
   const HighlightedText = tw.span`bg-primary-100 text-gray-100 px-4 transform -skew-x-12 inline-block`;
@@ -25,10 +78,10 @@ export default () => {
     <AnimationRevealPage>
       <Hero
         heading={<>Jack's Chicken
-                  <HighlightedText>
-                    <span tw="text-4xl">Jack of All Fried Chicken.</span>
-                  </HighlightedText>
-                </>}
+          <HighlightedText>
+            <span tw="text-4xl">Jack of All Fried Chicken.</span>
+          </HighlightedText>
+        </>}
         description="."
         imageSrc="https://media.istockphoto.com/id/1040846840/id/foto/sayap-ayam-goreng-dengan-kentang-goreng.jpg?s=1024x1024&w=is&k=20&c=3DimrubY6AEMV30L-O34lKSiJ5HUHvnKjq0zimjIGMc="
         imageCss={imageCss}
@@ -37,24 +90,22 @@ export default () => {
         watchVideoButtonText="Meet The Chefs"
       />
       <MainFeature
-        subheading={<Subheading>Established Since 2014</Subheading>}
+        subheading={<Subheading>Jack's Fleet</Subheading>}
         heading={
           <>
-            Serving Flavorful Fried Chicken
-            <wbr /> <HighlightedText>over 5 years.</HighlightedText>
+            Merekrut Mitra
+            <wbr /> <HighlightedText> Seluruh Indonesia</HighlightedText>
           </>
         }
         description={
           <Description>
-            Crispy, golden-brown chicken<br />has delighted taste buds since day one.
+            Dimanapun anda berada<br />Jadilah bagian dari armada Jack's Fried Chicken
             <br />
-            <br />
-            Come experience the deliciousness that stands the test of time.
           </Description>
         }
         buttonRounded={false}
         textOnLeft={false}
-        primaryButtonText="Latest Offers"
+        primaryButtonText="Rincian Kemitraan"
         imageSrc={
           "https://www.shutterstock.com/shutterstock/photos/2234906561/display_1500/stock-photo-woman-hand-taking-the-fried-chicken-wings-by-hands-over-dark-background-with-copy-space-2234906561.jpg"
         }
@@ -70,7 +121,8 @@ export default () => {
           </>
         }
       /> */}
-      <Features
+
+      {/* <Features
         heading={
           <>
             Amazing <HighlightedText>Services.</HighlightedText>
@@ -99,7 +151,8 @@ export default () => {
 
         imageContainerCss={tw`p-2!`}
         imageCss={tw`w-20! h-20!`}
-      />
+      /> */}
+
       <MainFeature2
         subheading={<Subheading>A Reputed Brand</Subheading>}
         heading={<>Why <HighlightedText>Choose Us ?</HighlightedText></>}
@@ -127,10 +180,15 @@ export default () => {
         imageDecoratorBlobCss={tw`left-1/2 md:w-32 md:h-32 -translate-x-1/2 opacity-25`}
         textOnLeft={true}
       />
-      <Testimonial
+
+      {/* Custom code */}
+      <FranchiseDetails />
+
+      {/* <Testimonial
         subheading=""
         heading={<>Customers <HighlightedText>Love Us.</HighlightedText></>}
-      />
+      /> */}
+
       <DownloadApp
         text={<>People around you are ordering delicious meals using the <HighlightedTextInverse>Jack's Chicken</HighlightedTextInverse></>}
       />

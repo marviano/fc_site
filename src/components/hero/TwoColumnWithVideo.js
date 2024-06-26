@@ -63,7 +63,7 @@ export default ({
   heading = "Modern React Templates, Just For You",
   description="Our templates are easy to setup, understand and customize. Fully modular components with a variety of pages and components.",
   watchVideoButtonText="Meet The Chefs",
-  watchVideoYoutubeUrl="https://www.youtube.com/embed/_GuOjXYl5ew",
+  watchVideoYoutubeUrl="https://www.youtube.com/embed/nuwAMztxL1E?si=Q7b2Tij2mVEvUe8u",
   imageSrc=DesignIllustration,
   imageCss=null,
   imageDecoratorBlob = false,
@@ -79,7 +79,7 @@ export default ({
         <TwoColumn>
           <LeftColumn>
             <Heading>{heading}</Heading>
-            <Paragraph>{description}</Paragraph>
+            {/* <Paragraph>{description}</Paragraph> */}
             <Actions>
               <WatchVideoButton onClick={toggleModal}>
                 <span className="playIconContainer">

@@ -50,7 +50,7 @@ export default () => {
   return (
     <Container>
       <Content>
-        <SixColumns>
+        {/* <SixColumns>
           <Column>
             <ColumnHeading>Main</ColumnHeading>
             <LinkList>
@@ -131,14 +131,14 @@ export default () => {
               </SubscribeForm>
             </SubscribeNewsletterContainer>
           </SubscribeNewsletterColumn>
-        </SixColumns>
-        <Divider />
+        </SixColumns> */}
+        {/* <Divider /> */}
         <ThreeColRow>
           <LogoContainer>
             <LogoImg src={LogoImage} />
-            <LogoText>Treact Inc.</LogoText>
+            <LogoText>Jack's Chicken</LogoText>
           </LogoContainer>
-          <CopywrightNotice>&copy; 2018 Treact Inc. All Rights Reserved.</CopywrightNotice>
+          <CopywrightNotice>&copy; 2024 Austin Sebastian Marviano | Repository of: Github.com/marviano </CopywrightNotice>
           <SocialLinksContainer>
             <SocialLink href="https://facebook.com">
               <FacebookIcon />
