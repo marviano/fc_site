@@ -1,3 +1,9 @@
+## Note from: AUSTIN SEBASTIAN MARVIANO
+Searchable dengan comment, key word: "checkpoint"
+Gambar mockup yang pada footer homepage: src/components/cta/DownloadApp.js
+Header: src/components/headers/light.js
+Footer: src/components/footers/FiveColumnWithInputForm.js
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Script
