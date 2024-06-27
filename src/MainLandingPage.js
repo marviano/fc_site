@@ -25,7 +25,7 @@ import shopIconImageSrc from "images/shop-icon.svg";
 
 
 //custom code
-const FranchiseDetails = () => {
+const FranchiseDetails = ({ HighlightedText }) => {
   const [activeButton, setActiveButton] = useState(0);
   const buttons = ["Biaya Kemitraan", "Syarat Kemitraan", "Sistem Kerjasama", "Prosedur Kemitraan", "Proyeksi BEP"];
 
@@ -36,22 +36,42 @@ const FranchiseDetails = () => {
     syaratKemitraanImage,
     sistemKerjasamaImage,
     prosedurKemitraanImage,
-    proyeksiBEPImage // Use the actual image for "Proyeksi BEP"
+    proyeksiBEPImage
   ];
 
   return (
-    <div tw="mt-12 mb-12 text-center">
-      <div tw="flex justify-center space-x-4">
+    <div css={tw`mt-12 mb-12 text-center`}>
+      <div css={tw`text-4xl font-bold mb-8`}>
+        <HighlightedText>Franchise Details</HighlightedText>
+      </div>
+      <div css={[
+        tw`flex flex-wrap justify-center gap-4`,
+        css`
+          @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: center;
+          }
+        `
+      ]}>
         {buttons.map((button, index) => (
           <button
             key={index}
-            tw="px-6 py-3 rounded-lg focus:outline-none"
             css={[
-              activeButton === index && tw`bg-primary-500 text-white`,
+              tw`px-4 py-2 rounded-lg focus:outline-none text-sm transition-all duration-300`,
               css`
                 background-color: ${activeButton === index ? buttonColors[index] : "transparent"};
                 color: ${activeButton === index ? "white" : buttonColors[index]};
                 border: 2px solid ${buttonColors[index]};
+                
+                @media (max-width: 768px) {
+                  width: 80%;
+                  max-width: 300px;
+                }
+
+                &:hover {
+                  background-color: ${buttonColors[index]};
+                  color: white;
+                }
               `
             ]}
             onClick={() => setActiveButton(index)}
@@ -60,8 +80,8 @@ const FranchiseDetails = () => {
           </button>
         ))}
       </div>
-      <div tw="mt-8 flex justify-center"> {/* Add 'flex justify-center' */}
-        <img src={content[activeButton]} alt={buttons[activeButton]} />
+      <div css={tw`mt-8 flex justify-center`}>
+        <img css={tw`max-w-full h-auto`} src={content[activeButton]} alt={buttons[activeButton]} />
       </div>
     </div>
   );
@@ -182,7 +202,7 @@ export default () => {
       />
 
       {/* Custom code */}
-      <FranchiseDetails />
+      <FranchiseDetails HighlightedText={HighlightedText} />
 
       {/* <Testimonial
         subheading=""
